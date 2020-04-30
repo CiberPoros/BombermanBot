@@ -89,7 +89,7 @@ namespace Bomberman.Logic.Handlers
             foreach (var dir in new Move[] { Move.Down, Move.Left, Move.Right, Move.Up })
             {
                 Point p = (Point)bombPoint;
-                for (int i = 0; i < Parameters.BoomRadius; i++)
+                for (int i = 0; i < Parameters.BlastRadius; i++)
                 {
                     p = p.Shift(dir);
                     result.Add(p, timeToBoom);

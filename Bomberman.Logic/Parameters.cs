@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 using Bomberman.Api;
 
@@ -10,72 +11,77 @@ namespace Bomberman.Logic
         /// <summary>
         /// Радиус взрыва
         /// </summary>
-        public const int BoomRadius = 3;
+        public static int BlastRadius => int.Parse(ConfigurationManager.AppSettings.Get("BlastRadius"));
 
         /// <summary>
         /// Количество тиков, после которого игрок считается стоящим АФК
         /// </summary>
-        public const int AfkIdentifyTicks = 5;
+        public static int AfkIdentifyTicks => int.Parse(ConfigurationManager.AppSettings.Get("AfkIdentifyTicks"));
 
         /// <summary>
         /// Коэффициент, влияющий на то, насколько возможность коллизии будет уменьшать вес возможного хода
         /// </summary>
-        public const int CollisionReducerWeight = 3;
+        public static int CollisionReducerWeight => int.Parse(ConfigurationManager.AppSettings["CollisionReducerWeight"]);
 
         /// <summary>
         /// Количество тиков, на которые будут просчитываться ходы других игроков
         /// </summary>
-        public const int DeepForRecalcWeightsUnits = 3;
+        public static int DeepForRecalcWeightsUnits => int.Parse(ConfigurationManager.AppSettings["DeepForRecalcWeightsUnits"]);
 
         /// <summary>
         /// Количество тиков, на которые будут просчитываться ходы возможные ходы моего персонажа
         /// </summary>
-        public const int DeepForRecalcDirectionsWeight = 7;
+        public static int DeepForRecalcDirectionsWeight => int.Parse(ConfigurationManager.AppSettings["DeepForRecalcDirectionsWeight"]);
 
         /// <summary>
         /// Количество тиков, на которые будут просчитываться ходы персонажа и проверяться на смерть с учетом поставленных ранее бомб
         /// </summary>
-        public const int DeepForCheckDeadlyMoves = 5;
+        public static int DeepForCheckDeadlyMoves => int.Parse(ConfigurationManager.AppSettings["DeepForCheckDeadlyMoves"]);
 
         /// <summary>
         /// Коэффициент, на который будет уменьшаться рассчет веса клетки при увеличении глубины рекурсии во время обхода для юнитов с весом
         /// </summary>
-        public const int UnitsWeightReducer = 3;
+        public static int UnitsWeightReducer => int.Parse(ConfigurationManager.AppSettings["UnitsWeightReducer"]);
 
         /// <summary>
         /// Коэффициент, на который будет уменьшаться рассчет веса клетки при увеличении глубины рекурсии во время обхода для юнитов с весом
         /// </summary>
-        public const int DirectionsWeightReducer = 3;
+        public static int DirectionsWeightReducer => int.Parse(ConfigurationManager.AppSettings["DirectionsWeightReducer"]);
 
         /// <summary>
         /// Вес вражеского юнита (не обязательно его очки за убийство!)
         /// </summary>
-        public const long BombermanWeight = 7000000000000;
+        public static long BombermanWeight => long.Parse(ConfigurationManager.AppSettings["BombermanWeight"]);
 
         /// <summary>
         /// Вес мясника (не обязательно его очки за убийство!)
         /// </summary>
-        public const long MeatChopperWeight = 2500000000000;
+        public static long MeatChopperWeight => long.Parse(ConfigurationManager.AppSettings["MeatChopperWeight"]);
 
         /// <summary>
         /// Вес уничтожаемой стены (не обязательно её очки за разрушение!)
         /// </summary>
-        public const long WallWeight = 200000000000;
+        public static long WallWeight => long.Parse(ConfigurationManager.AppSettings["WallWeight"]);
 
         /// <summary>
         /// Вес смерти
         /// </summary>
-        public const int DeathWeight = 600; // TODO: will be used?
+        public static long DeathWeight => long.Parse(ConfigurationManager.AppSettings["DeathWeight"]);
 
         /// <summary>
         /// Бомбермен будет ставить бомбы только до движения
         /// </summary>
-        public const bool OnlyActBeforeMode = true;
+        public static bool OnlyActBeforeMode => bool.Parse(ConfigurationManager.AppSettings["OnlyActBeforeMode"]);
 
         /// <summary>
         /// Будет проверять на наличие игроков, стоящих афк
         /// </summary>
-        public const bool CheckAfkPlayers = true;
+        public static bool CheckAfkPlayers => bool.Parse(ConfigurationManager.AppSettings["CheckAfkPlayers"]);
+
+        /// <summary>
+        /// Будет проверять на наличие игроков, стоящих афк
+        /// </summary>
+        public static bool CheckCollision => bool.Parse(ConfigurationManager.AppSettings["CheckCollision"]);
 
         internal static long GetWeightOfElement(Element element)
         {

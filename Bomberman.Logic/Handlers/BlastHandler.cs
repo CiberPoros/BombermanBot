@@ -81,7 +81,7 @@ namespace Bomberman.Logic.Handlers
             void checkDirection(Move direction, ref bool isMB)
             {
                 Point p = bomb;
-                for (int i = 0; i < Parameters.BoomRadius; i++)
+                for (int i = 0; i < Parameters.BlastRadius; i++)
                 {
                     p = p.Shift(direction);
                     affectedPoints.Add(p);

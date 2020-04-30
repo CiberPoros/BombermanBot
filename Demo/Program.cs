@@ -29,8 +29,8 @@ namespace Demo
 	class Program
 	{
 		// Сюда необходимо вставлять строку из адресной строки браузера, после того, как вы авторизуетесь на игровом сервере
-		//static string ServerUrl = "http://codebattle2020s1.westeurope.cloudapp.azure.com/codenjoy-contest/board/player/sq9ji0ibqjzvb381kk9l?code=5672623760235934283&gameName=bomberman";
-        static string ServerUrl = "http://codebattle2020final.westeurope.cloudapp.azure.com/codenjoy-contest/board/player/9zcrkutslfi0ec1kk0kl?code=4923613602422935433&gameName=bomberman";
+		static string ServerUrl = "http://codebattle2020s1.westeurope.cloudapp.azure.com/codenjoy-contest/board/player/sq9ji0ibqjzvb381kk9l?code=5672623760235934283&gameName=bomberman";
+        //static string ServerUrl = "http://codebattle2020final.westeurope.cloudapp.azure.com/codenjoy-contest/board/player/9zcrkutslfi0ec1kk0kl?code=4923613602422935433&gameName=bomberman";
 
         static void Main(string[] args)
 		{

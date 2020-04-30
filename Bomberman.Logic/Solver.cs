@@ -6,6 +6,7 @@ using Bomberman.Logic.Handlers.Facade;
 using Bomberman.Api;
 using Bomberman.Logic.Extensions;
 using System.Linq;
+using System.Configuration;
 
 namespace Bomberman.Logic
 {
@@ -35,6 +36,8 @@ namespace Bomberman.Logic
 
         public static string Solve(Board condition)
         {
+            ConfigurationManager.RefreshSection("appSettings");
+
             if (_handlers == null)
                 Init(condition.BoardSize);
 
@@ -52,11 +55,23 @@ namespace Bomberman.Logic
                 masks = new List<int>(movesMasks);
 
             int moveMask = masks.Count > 0 ? masks.First() : (int)Move.Stop;
+            long weight = HandlersFacade.WeightOfDirection[Utils.GetMoveByMask(moveMask)];
+            if (Parameters.CheckCollision &&
+                HandlersFacade.CanMakeCollision[Utils.GetMoveByMask(moveMask)])
+                weight /= Parameters.CollisionReducerWeight;
+
             foreach (int mask in masks)
             {
-                if (HandlersFacade.WeightOfDirection[Utils.GetMoveByMask(mask)] > 
-                    HandlersFacade.WeightOfDirection[Utils.GetMoveByMask(moveMask)])
+                long nextWeight = HandlersFacade.WeightOfDirection[Utils.GetMoveByMask(mask)];
+                if (Parameters.CheckCollision &&
+                HandlersFacade.CanMakeCollision[Utils.GetMoveByMask(mask)])
+                    nextWeight /= Parameters.CollisionReducerWeight;
+
+                if (nextWeight > weight)
+                {
                     moveMask = mask;
+                    weight = nextWeight;
+                }                 
             }
 
             if ((moveMask & (int)(Move.ActAfter | Move.ActBefore)) > 0)

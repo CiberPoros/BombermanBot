@@ -7,9 +7,7 @@ namespace Bomberman.Logic.Handlers
 {
     internal abstract class AbstractHandler<T> : IHandler
     {
-        private static readonly T _instance = (T)Activator.CreateInstance(typeof(T), true);
-
-        internal static T Instance => _instance;
+        internal static T Instance { get; } = (T)Activator.CreateInstance(typeof(T), true);
 
         protected AbstractHandler() { }
 

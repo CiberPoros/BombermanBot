@@ -29,8 +29,8 @@ namespace Bomberman.Logic.Handlers
                     _prevBombermansPointAndStayTime.Add(p, 1);
 
             _afkPlayers = (from kvp in _prevBombermansPointAndStayTime
-                          where kvp.Value >= Parameters.AfkIdentifyTicks
-                          select kvp.Key)
+                           where kvp.Value >= Parameters.AfkIdentifyTicks
+                           select kvp.Key)
                           .ToList();
         }
 
