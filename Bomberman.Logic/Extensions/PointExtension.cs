@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Bomberman.Api;
+﻿using Bomberman.Api;
+using System;
 
 namespace Bomberman.Logic.Extensions
 {
-    internal static class PointExtension
+	internal static class PointExtension
     {
 		internal static Point Shift(this Point p, Move direction)
 		{

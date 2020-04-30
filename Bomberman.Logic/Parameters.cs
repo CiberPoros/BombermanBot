@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Bomberman.Api;
+using System;
 using System.Configuration;
-using System.Text;
-using Bomberman.Api;
 
 namespace Bomberman.Logic
 {

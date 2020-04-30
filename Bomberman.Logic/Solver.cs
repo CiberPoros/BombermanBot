@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Bomberman.Api;
+using Bomberman.Logic.Extensions;
 using Bomberman.Logic.Handlers;
 using Bomberman.Logic.Handlers.Facade;
-using Bomberman.Api;
-using Bomberman.Logic.Extensions;
-using System.Linq;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 
 namespace Bomberman.Logic
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Bomberman.Api;
+﻿using Bomberman.Api;
 using Bomberman.Logic.Handlers.Facade;
 using System.Linq;
 

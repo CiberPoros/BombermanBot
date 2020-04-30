@@ -1,7 +1,5 @@
-﻿using System;
+﻿using Bomberman.Api;
 using System.Collections.Generic;
-using System.Text;
-using Bomberman.Api;
 
 namespace Bomberman.Logic.Handlers.Facade
 {

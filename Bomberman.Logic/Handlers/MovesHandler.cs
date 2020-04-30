@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Bomberman.Api;
+using Bomberman.Logic.Extensions;
+using Bomberman.Logic.Handlers.Facade;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Bomberman.Logic.Extensions;
-using System.Threading.Tasks;
-using Bomberman.Logic.Handlers.Facade;
-using Bomberman.Api;
 
 namespace Bomberman.Logic.Handlers
 {
